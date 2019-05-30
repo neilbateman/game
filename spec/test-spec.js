@@ -119,11 +119,46 @@ describe('Game', function() {
       game.CreateMod("strength","Karate",5,'s');
       game.CreateMod("strength","Gamer",-5,'s');
       game.CreateMod("intelligence","Fox News",-5,'s');
-      game.CreateBoss(1,"45");
+      game.CreateBoss(2,"Wavy Kanye", ["insult"]);
       var hp = game.bosses[0].health;
       game.combatBoss("punch");
 
       console.log(game);
       expect(game.bosses[0].health).not.toEqual(hp);
     });
+    it('should eat a magazine' , function(){
+      var game = new Game();
+      game.CreateMod("intelligence","People",-1,'s');
+      game.CreateMod("intelligence","Collector's",-1,'p');
+      game.CreateMod("intelligence","Academic's",3,'p');
+      game.CreateMod("strength","Crusty",5,'p');
+      game.CreateMod("strength","Time",1,'s');
+      game.CreateMod("strength","Karate",5,'s');
+      game.CreateMod("strength","Gamer",-5,'s');
+      game.player.current_health = 1;
+      game.CreateDrop();
+      game.UseMagazine("eat");
+      expect(game.player.current_health).toEqual(game.player.max_health);
+      console.log(game);
+
+    });
+    it('should read a magazine' , function(){
+      var game = new Game();
+      game.CreateMod("intelligence","People",-1,'s');
+      game.CreateMod("intelligence","Collector's",-1,'p');
+      game.CreateMod("intelligence","Academic's",3,'p');
+      game.CreateMod("strength","Crusty",5,'p');
+      game.CreateMod("strength","Time",1,'s');
+      game.CreateMod("strength","Karate",5,'s');
+      game.CreateMod("strength","Gamer",-5,'s');
+      var  currentIntelligence = game.player.stats.intelligence;
+      var  currentstrength = game.player.stats.strength;
+      game.player.inventory.push({strength: -1, intelligence: 1});
+      game.UseMagazine("read");
+      expect(game.player.stats.intelligence).not.toEqual(currentIntelligence);
+      expect(game.player.stats.strength).not.toEqual(currentstrength);
+      console.log(game);
+
+    });
+  
 });

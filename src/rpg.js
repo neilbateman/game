@@ -1,4 +1,5 @@
-export function Game(){
+export class Game{
+  constructor(){
   this.gameOver = false;
   this.prefix = [];
   this.suffix = [];
@@ -7,7 +8,7 @@ export function Game(){
   this.enemies = [];
   this.bosses = [];
   this.player.inventory = [];
-  this.player.location = [];
+  //this.player.location = [];
   this.player.level = 1;
   this.player.experience = 0;
   this.player.stats = {strength : Math.floor((Math.random()*10)+1), intelligence : Math.floor((Math.random()*10)+1), luck : Math.floor((Math.random()*10)+1)}
@@ -63,7 +64,7 @@ export function Game(){
     }
   }
 
-  Game.prototype.GenerateEnemy = function(level){
+  GenerateEnemy(level){
     this.enemies.push({
       stats : {strength : Math.floor((Math.random()*(6*level))+11), intelligence : Math.floor((Math.random()*(6*level))+11) },
       abilities : ["punch"],
@@ -71,7 +72,7 @@ export function Game(){
     });
   }
 
-  Game.prototype.CombatRound = function(action){
+  CombatRound(action){
     if(this.abilities[action].type == "damage"){
       this.enemies[0].health -= this.abilities.punch.damage(this.player);
     }
@@ -104,7 +105,7 @@ export function Game(){
     }
   }
 
-  Game.prototype.combatBoss = function(action){
+  combatBoss(action){
     if(this.abilities[action].type == "damage"){
       this.bosses[0].health -= this.abilities.punch.damage(this.player);
     }
@@ -145,7 +146,7 @@ export function Game(){
 
 
 
-Game.prototype.CreateMod = function(type, name, value, PorS){
+CreateMod (type, name, value, PorS){
   let item = {};
   item.type = type;
   item.name = name;
@@ -157,7 +158,7 @@ Game.prototype.CreateMod = function(type, name, value, PorS){
   }
 }
 
-Game.prototype.CreateDrop = function(){
+CreateDrop (){
   let item = {strength : 0, intelligence: 0};
   let index ="";
   let itemNum = Math.floor(Math.random()* 10000)+1;
@@ -177,7 +178,7 @@ this.player.inventory.push(item);
 return index;
 }
 
-Game.prototype.UseMagazine = function(action){
+UseMagazine (action){
 //read = add appropriate amount of intelligence or strength
 //eat = recover player hp
 
@@ -191,13 +192,34 @@ if(action =="eat"){
     this.player.current_health = this.player.max_health;
   }
 
+
 }
 }
-Game.prototype.CreateBoss = function(level, name){
+CreateBoss (level, name, abilities){
   this.bosses.push({
     name: name,
     stats : {strength : Math.floor((Math.random()*(6*level))+11), intelligence : 1 },
-    abilities : ["tweet"],
+    abilities : abilities,
     health : Math.floor((Math.random()*(100*level))+500)
   });
 }
+}
+var game = new Game();
+game.CreateMod("intelligence","People",-1,'s');
+game.CreateMod("intelligence","Collector's",-1,'p');
+game.CreateMod("intelligence","Academic's",3,'p');
+game.CreateMod("strength","Crusty",5,'p');
+game.CreateMod("strength","Time",1,'s');
+game.CreateMod("strength","Karate",5,'s');
+game.CreateMod("strength","Gamer",-5,'s');
+game.CreateMod("intelligence","Fox News",-5,'s');
+game.CreateBoss(1, "MyPillow Michael", ["insult"]);
+game.CreateBoss(2, "Wavy Kanye", ["insult"]);
+game.CreateBoss(3, "Billionare Betsy", ["insult"]);
+game.CreateBoss(4, "Turtle McConnell", ["insult"]);
+game.CreateBoss(5, "Chad Kavanaugh", ["insult"]);
+game.CreateBoss(6, "Keebler Elf Sessions", ["insult"]);
+game.CreateBoss(7, "Don Jr.", ["insult"]);
+game.CreateBoss(8, "Rascist Barbie", ["insult"]);
+game.CreateBoss(9, "Fox and Friends", ["insult","rouse the elders"]);
+game.CreateBoss(10, "45", ["tweet","insult"]);
