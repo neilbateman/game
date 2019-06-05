@@ -2,7 +2,7 @@
 
 #### _{Brief description of application}, {Date of current version}_
 
-#### By _**Ryan McLean**_
+#### By _**Neil Bateman**_
 
 ## Description
 
