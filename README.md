@@ -1,16 +1,17 @@
-# _{Application Name}_
+# _45_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _Console based RPG game, 06-01-19_
 
 #### By _**Neil Bateman**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_This is a console based RPG game, utlizing timeouts and intervals. You battle enemies with punch or compliment, and acquire magazines to eat or throw at the enemy. Boss enemies appear, leading to the main boss "45" who's special attack is "fake news" which regenerates his health._
 
 ## Setup/Installation Requirements
 
-* _No Setup/Installation Required_
+* Clone repository and run 'npm install' thru terminal.
+* From terminal inside project directory, run 'npm run start'.
 
 
 ## Known Bugs
@@ -19,14 +20,14 @@ _There are no known bugs._
 
 ## Support and contact details
 
-_Please contact Ryan McLean at mcleanrs@comcast.net._
+_Please contact Neil Bateman at neilbatman@gmail.com._
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+_NPM, webpack, webpack-cli, webpack-dev-server, clean-webpack-plugin, css-loader, style-loader, babel-core, loader, preset-es2015, eslint, eslint-loader, html-webpack-plugin, jasmine, jasmine-core, karma, karma-chrome-launcher, karma-cli, karma, jasmine, karma-jasmine-html-reporter, karma-jquery, karma-sourcemap-loader, karma-webpack, uglifyjs-webpack-plugin
 
 ### License
 
 *This Software is Licensed under the MIT License.*
 
-Copyright (c) 2019 **_Ryan McLean_**
+Copyright (c) 2019 **_Neil Bateman_**
