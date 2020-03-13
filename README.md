@@ -22,10 +22,6 @@ _There are no known bugs._
 
 _Please contact Neil Bateman at neilbatman@gmail.com._
 
-## Technologies Used
-
-_NPM, webpack, webpack-cli, webpack-dev-server, clean-webpack-plugin, css-loader, style-loader, babel-core, loader, preset-es2015, eslint, eslint-loader, html-webpack-plugin, jasmine, jasmine-core, karma, karma-chrome-launcher, karma-cli, karma, jasmine, karma-jasmine-html-reporter, karma-jquery, karma-sourcemap-loader, karma-webpack, uglifyjs-webpack-plugin
-
 ### License
 
 *This Software is Licensed under the MIT License.*
